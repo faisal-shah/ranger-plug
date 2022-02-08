@@ -43,6 +43,7 @@ def install(repo):
     if path.exists():
         print('{} is already installed'.format(repo))
     else:
+        PLUGINS_PATH.mkdir(parents=True, exist_ok=True)
         print('Cloning {}'.format(repo))
         git.Git(PLUGINS_PATH).clone(repo.url)
         git.Repo(path).git.checkout(repo.branch)
